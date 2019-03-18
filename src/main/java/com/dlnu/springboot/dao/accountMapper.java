@@ -3,6 +3,10 @@ package com.dlnu.springboot.dao;
 import com.dlnu.springboot.pojo.account;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Mapper
 @Repository
@@ -17,5 +21,8 @@ public interface accountMapper {
 
     @Select("select * from account where name = #{name} ")
     account findByName(@Param("name") String name);
+
+    @Select("select * from account ")
+    List<account> findAll();
 
 }

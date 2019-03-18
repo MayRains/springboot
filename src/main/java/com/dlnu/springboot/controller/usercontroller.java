@@ -4,13 +4,18 @@ import com.dlnu.springboot.pojo.account;
 import com.dlnu.springboot.service.accountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class usercontroller {
@@ -30,5 +35,22 @@ public class usercontroller {
             str = "success";
         }else str = "redirect:index";
         return str;
+    }
+
+    @RequestMapping("update")
+    public String update_Shirotest() {
+        return "account/update";
+    }
+
+    @RequestMapping("shiroLogin")
+    public String shiro_login() {
+        return "account/login";
+    }
+
+    @RequestMapping("getAll")
+    public String getAll(ModelMap map) {
+        List<account> temp = accountservice.findAll();
+        map.addAttribute("users", temp);
+        return "list";
     }
 }
