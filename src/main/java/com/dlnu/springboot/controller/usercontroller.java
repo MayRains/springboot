@@ -2,6 +2,8 @@ package com.dlnu.springboot.controller;
 
 import com.dlnu.springboot.pojo.account;
 import com.dlnu.springboot.service.accountService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,9 +50,11 @@ public class usercontroller {
     }
 
     @RequestMapping("getAll")
-    public String getAll(ModelMap map) {
-        List<account> temp = accountservice.findAll();
-        map.addAttribute("users", temp);
+    public String getAll(ModelMap map, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+        PageHelper.startPage(pageNum, 5);
+        List<account> list = accountservice.findAll();
+        PageInfo<account> page = new PageInfo<account>(list);
+        map.addAttribute("users", page);
         return "list";
     }
 }

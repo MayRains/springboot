@@ -15,12 +15,18 @@
         <td>password</td>
     </tr>
 
-    <tr th:each="users : ${users}">
-        <td th:text="${users.id}"></td>
-        <td th:text="${users.name}"></td>
-        <td th:text="${users.money}"></td>
-        <td th:text="${users.password}"></td>
+    <tr th:each="per : ${users.list}">
+        <td th:text="${per.id}"></td>
+        <td th:text="${per.name}"></td>
+        <td th:text="${per.money}"></td>
+        <td th:text="${per.password}"></td>
     </tr>
 </table>
+<p>当前<span th:text="${users.pageNum}"></span></p>页，总<span th:text="${users.pages}"></span>页，共<span
+        th:text="${users.total}"> </span>
+<a th:href="@{/getAll(pageNum=${users.hasPreviousPage}?${users.nextPage}:1)}">上一页</a>
+<a th:href="@{/getAll(pageNum=${users.hasNextPage}?${users.nextPage}:${users.pages})}">下一页</a>
+
+
 </body>
 </html>

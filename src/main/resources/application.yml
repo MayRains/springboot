@@ -15,8 +15,14 @@ spring:
     servlet:
       content-type: text/html
 
+
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: frameworkdemo.summerboot.pojo
 
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countsql
 
