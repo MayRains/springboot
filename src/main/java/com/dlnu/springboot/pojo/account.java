@@ -5,7 +5,15 @@ public class account {
     private String password;
     private String name;
     private Integer money;
+    private String role;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getPassword() {
         return password;
@@ -43,9 +51,10 @@ public class account {
     public String toString() {
         return "account{" +
                 "id=" + id +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", money=" + money +
-                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

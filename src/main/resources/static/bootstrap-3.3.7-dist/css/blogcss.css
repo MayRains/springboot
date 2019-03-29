@@ -1,0 +1,100 @@
+
+.navbar-brand {
+    width: 50px;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.side-bar .list-group-item {
+    border: 0;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.side-bar .list-group-item.active {
+    background-color: darkgrey;
+    color: black;
+}
+
+img {
+    display: inline-block;
+    max-width: 80%;
+    border-radius: 3px;
+}
+
+.main-blog .title {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.info {
+    color: #0096e6;
+}
+
+.info span {
+    display: inline-block;
+    float: bottom !important;
+    font-family: Consolas;
+    color: black;
+}
+
+.blog-list {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #999;
+}
+
+.avatar {
+    display: inline-block;
+}
+
+.avatar img {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+
+.form-control {
+    margin-top: 5px;
+    width: 175px !important;
+    height: 32px !important;
+    margin-right: 10px;
+}
+
+.form-group input {
+    border: black solid 1px;
+}
+
+.form-group button {
+    background: lightgray;
+}
+
+.side-bar-card {
+    margin-top: 30px;
+    background: lightgrey;
+    padding: 20px 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.side-bar-card-01 {
+    margin-top: 30px;
+    background: lightgrey;
+    padding: 20px 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.side-bar-card-01 img {
+    padding-left: 40%;
+}
+
+.detail {
+    text-align: center;
+}
+

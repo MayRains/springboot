@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{jquery-3.3.1/jquery-3.3.1.js}"></script>
+    <script th:src="@{echarts/echarts.js}"></script>
+
+</head>
+<body>
+<div id="main" style="width: 600px;height: 600px">
+
+</div>
+<script type="text/javascript" th:inline="javascript" th:each="list:${stds}">
+    var myecharts = echarts.init(document.getElementById("main"));
+    var namelist = [];
+    var gradelist = [];
+
+    function fetchdata(res) {
+        $.ajax({
+            type: "GET",
+            url: "/datacollect",
+            data: {},
+            success: function () {
+                var obj = {value: [[${list.major}]], name: [[${list.stuname}]]};
+                var obj1 = {name: [[${list.stuname}]]};
+                gradelist.push(obj.value);
+                namelist.push(obj.name);
+                console.log(JSON.stringify(gradelist));
+                res({
+                    categories: namelist,
+                    data: gradelist
+                });
+            }
+        });
+    }
+
+    var option = {
+        color: ['#3398DB'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+
+        xAxis: {
+            type: 'category',
+            legend: 'major',
+            data: []
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: '专业课成绩',
+            data: [],
+            type: 'bar'
+        }]
+    };
+
+
+    fetchdata(function (data) {
+        myecharts.setOption({
+            xAxis: {
+                data: data.categories
+            },
+            series: [{
+                data: data.data
+            }]
+        });
+    });
+    myecharts.setOption(option);
+</script>
+
+</body>
+</html>

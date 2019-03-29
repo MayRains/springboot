@@ -25,4 +25,10 @@ public interface accountMapper {
     @Select("select * from account ")
     List<account> findAll();
 
+    @Select("select role from account where name = #{name}")
+    String getRole(@Param("name") String name);
+
+    @Insert("insert into account(name,password,money) values(#{name},#{password},#{money})")
+    void register(account acc);
+
 }

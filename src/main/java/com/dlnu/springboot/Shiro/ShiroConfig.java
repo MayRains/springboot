@@ -46,14 +46,18 @@ public class ShiroConfig {
         perms：该资源必须得到资源权限才可以访问
         role：该资源必须得到角色权限才可以访问
         * */
+
+        //授权过滤器
+
         Map<String, String> filterMap = new LinkedHashMap<String, String>();
+        filterMap.put("/delete", "roles[admin]");
         filterMap.put("/update", "authc");
+        filterMap.put("/shirovalidate", "anon");
         //通配符 filterMap.put('/*'.'authc);
         factoryBean.setFilterChainDefinitionMap(filterMap);
         //修改默认的登陆界面（login.jsp）== index.html
         factoryBean.setLoginUrl("/shiroLogin");
-
-
+        factoryBean.setUnauthorizedUrl("/hello");
         return factoryBean;
     }
 

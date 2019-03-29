@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script th:src="@{jquery-3.3.1/jquery-3.3.1.js}"></script>
+        <script th:src="@{bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+        <link rel="stylesheet" th:href="@{bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{bootstrap-3.3.7-dist/css/bootstrap-theme.min.css}">
+        <title>Title</title>
+        <style type="text/css">
+
+            body {
+                background-color: darkgrey;
+                color: #24292e;
+                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            input {
+                padding: 1px 0px;
+            }
+
+            user agent stylesheet
+            input {
+                -webkit-appearance: textfield;
+                background-color: white;
+                -webkit-rtl-ordering: logical;
+                cursor: text;
+                padding: 1px;
+                border-width: 2px;
+                border-style: inset;
+                border-color: initial;
+                border-image: initial;
+            }
+
+            user agent stylesheet
+            input, textarea, select, button {
+                text-rendering: auto;
+                color: initial;
+                letter-spacing: normal;
+                word-spacing: normal;
+                text-transform: none;
+                text-indent: 0px;
+                text-shadow: none;
+                display: inline-block;
+                text-align: start;
+                margin: 0em;
+                font: 400 13.3333px Arial;
+            }
+
+            user agent stylesheet
+            input, textarea, select, button, meter, progress {
+                -webkit-writing-mode: horizontal-tb !important;
+            }
+
+            .text-gray {
+                color: #586069 !important;
+            }
+
+            .form-group .form-control {
+                background-color: #fafbfc;
+                margin-right: 5px;
+                max-width: 100%;
+                width: 440px;
+            }
+
+            .input-block {
+                display: block;
+                width: 100%;
+            }
+
+            .form-control, .form-select {
+                background-color: #fff;
+                background-position: right 8px center;
+                background-repeat: no-repeat;
+                border: 1px solid #d1d5da;
+                border-radius: 3px;
+                box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
+                color: #24292e;
+                font-size: 16px;
+                line-height: 20px;
+                min-height: 34px;
+                outline: none;
+                padding: 6px 8px;
+                vertical-align: middle;
+            }
+
+            .btn-primary-mktg:hover {
+                background-color: #28a745;
+                border-color: #28a745;
+            }
+
+            .btn-mktg:hover {
+                background-color: #0366d6;
+                border-color: #0366d6;
+                text-decoration: none;
+            }
+
+            .btn-primary-mktg:hover {
+                background-color: #28a745;
+                border-color: #28a745;
+            }
+
+            .btn-mktg:hover {
+                background-color: forestgreen;
+                border-color: forestgreen;
+                text-decoration: none;
+            }
+
+            .btn-large-mktg {
+                font-size: 16px;
+                padding: 20px 32px;
+            }
+
+            .btn-primary-mktg {
+                background-color: #2ebc4f;
+                border-color: #2ebc4f;
+            }
+
+            .btn-mktg {
+                font-family: Consolas;
+                -moz-appearance: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-appearance: none;
+                -webkit-user-select: none;
+                appearance: none;
+                background-color: #1277eb;
+                border: 1px solid #1277eb;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 16px 24px;
+                transition: .2s;
+                user-select: none;
+                vertical-align: middle;
+                white-space: nowrap;
+            }
+
+            .btn-large-mktg {
+                font-size: 16px;
+                padding: 20px 32px;
+            }
+
+            .btn-primary-mktg {
+                background-color: #2ebc4f;
+                border-color: #2ebc4f;
+            }
+
+            .btn-mktg {
+                -moz-appearance: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-appearance: none;
+                -webkit-user-select: none;
+                appearance: none;
+                background-color: #2ebc4f;
+                border: 1px solid #2ebc4f;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 16px 24px;
+                transition: .2s;
+                user-select: none;
+                vertical-align: middle;
+                white-space: nowrap;
+            }
+
+            .f4 {
+                font-size: 16px !important;
+            }
+
+            .btn-block {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+        </style>
+    </head>
+<body>
+<div class="navbar navbar-inverse">
+    <h1 style="font-family: 方正启体简体;text-align: center;color: white;font-weight: bolder;font-size: 48px">岁月不居，时节如流</h1>
+</div>
+<div class="container">
+    <div class="col-sm-8">
+        <h1 style="font-size: 48px!important;font-family: 华文隶书" class="h000-mktg text-white lh-condensed-ultra mb-3">钗头凤
+            -陆游</h1>
+        <p style="font-family: 华文行楷;font-size: 30px" class="lead-mktg mb-4">
+            红酥手，黄藤酒，满城春色宫墙柳。东风恶，欢情薄。一怀愁绪，几年离索。错、错、错。
+        </p>
+        <p style="font-family: 华文行楷;font-size: 30px" class="lead-mktg mb-4">
+            春如旧，人空瘦，泪痕红浥鲛绡透。桃花落，闲池阁。山盟虽在，锦书难托。莫、莫、莫！
+        </p>
+    </div>
+
+    <div class="col-sm-4">
+        <div class=" ">
+            <form class="form-group" style="background: #fff!important;padding: 24px" action="/register" method="post">
+                <dl class="form-group mt-0 errored">
+                    <dt class="input-label">
+                        <label class="form-label f5" for="user[login]">Username</label>
+                    </dt>
+                    <dd>
+                        <auto-check src="/signup_check/username"
+                                    csrf="vvF7nKlCjn6ar/C06cXEOAc2VBQSOlSHGbRMgvFN0bbX6aAyj40Dtb0vidEenwEQxVKNbsa+7dsVbKl2eFY1RA==">
+                            <input type="text" name="name" id="user[login]"
+                                   class="form-control form-control-lg input-block is-autocheck-errored"
+                                   placeholder="Pick a username" autocomplete="off" spellcheck="false">
+                        </auto-check>
+                    </dd>
+                    <!--<dd class="error">Username is already taken</dd>-->
+                </dl>
+                <dl class="form-group">
+                    <dt class="input-label">
+                        <label class="form-label f5" for="user[email]">Email</label>
+                    </dt>
+                    <dd>
+                        <auto-check src="/signup_check/email"
+                                    csrf="mhx4SciARzNlG9oKfksAeMJBbdgWWk6oOoEq8Vy6pQU9ud03q4tAjqTxepVxHbNMHSZdcHUJZwjBRoqJoWKwbQ==">
+                            <input type="text" name="money" id="user[email]"
+                                   class="form-control form-control-lg input-block js-email-notice-trigger"
+                                   placeholder="you@example.com" autocomplete="off" spellcheck="false">
+                        </auto-check>
+                    </dd>
+                </dl>
+                <dl class="form-group">
+                    <dt class="input-label">
+                        <label class="form-label f5" for="user[password]">Password</label>
+                    </dt>
+                    <dd>
+                        <input type="password" name="password" id="user[password]"
+                               class="form-control form-control-lg input-block" placeholder="Create a password">
+                        <p class="form-control-note">Make sure it's <span class="js-more-than-n-chars">more than 15 characters</span>
+                            OR <span class="js-min-chars text-green">at least 8 characters</span> <span
+                                    class="js-number-requirement text-green">including a number</span> <span
+                                    class="js-letter-requirement text-green">and a lowercase letter</span>. <a
+                                    href="https://help.github.com/articles/creating-a-strong-password"
+                                    class="tooltipped tooltipped-s" aria-label="Learn more about strong passwords">Learn
+                                more</a>.</p>
+                    </dd>
+                </dl>
+                <button class="btn-mktg btn-primary-mktg btn-large-mktg f4 btn-block" type="submit">Sign up for Gro
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
