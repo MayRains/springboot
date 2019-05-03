@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{jquery-3.3.1/jquery-3.3.1.js}"></script>
+    <script th:src="@{echarts/echarts.js}"></script>
+
+</head>
+<body>
+<div id="main" style="width: 600px;height: 600px">
+
+</div>
+<script type="text/javascript" th:inline="javascript" th:each="list:${users}">
+    var myecharts = echarts.init(document.getElementById("main"));
+    var arealist = [];
+    var namelist = [];
+
+    function fetchdata(res) {
+        $.ajax({
+            type: "GET",
+            url: "/pie",
+            data: {},
+            success: function () {
+                var obj = {value: [[${list.math}]], name: [[${list.stuname}]]};
+                arealist.push(obj.value);
+                namelist.push((obj.name))
+                console.log(JSON.stringify(arealist));
+                res({
+                    categories: namelist,
+                    data: arealist
+                });
+            }
+        });
+    }
+
+    var option = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: []
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [],
+            type: 'line',
+            areaStyle: {}
+        }]
+    };
+
+
+    fetchdata(function (data) {
+        myecharts.setOption({
+            xAxis: {
+                data: data.categories
+            },
+            series: [{
+                data: data.data
+            }]
+        });
+    });
+    myecharts.setOption(option);
+</script>
+
+</body>
+</html>

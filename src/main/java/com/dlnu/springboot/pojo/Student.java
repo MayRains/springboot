@@ -1,6 +1,9 @@
 package com.dlnu.springboot.pojo;
 
-public class Student {
+import java.io.Serializable;
+
+//redis 序列化
+public class Student implements Serializable {
     private Integer stuid;
     private String stuname;
     private String stugender;
